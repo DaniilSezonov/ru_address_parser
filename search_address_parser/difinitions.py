@@ -1,5 +1,4 @@
-from backends.address.search_address_parser.core.definition import Definition, MatchPosition
-
+from search_address_parser.core.definition import Definition, MatchPosition
 
 REGION_DEFINITIONS = [
     Definition(value="Область", abbreviations=['Обл'], match_pos=MatchPosition.LEFT),

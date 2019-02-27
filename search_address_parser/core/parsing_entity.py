@@ -1,6 +1,6 @@
 from typing import List, Pattern
 
-from backends.address.search_address_parser.core.definition import Definition
+from search_address_parser.core.definition import Definition
 
 
 class ParsingEntity:

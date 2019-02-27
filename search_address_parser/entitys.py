@@ -1,5 +1,5 @@
-from backends.address.search_address_parser.core.parsing_entity import ParsingEntity
-from backends.address.search_address_parser.difinitions import REGION_DEFINITIONS, CITY_DEFINITIONS, STREET_DEFINITIONS
+from search_address_parser.core.parsing_entity import ParsingEntity
+from search_address_parser.difinitions import REGION_DEFINITIONS, CITY_DEFINITIONS, STREET_DEFINITIONS
 
 
 class RegionEntity(ParsingEntity):

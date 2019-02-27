@@ -1,4 +1,4 @@
-from backends.address.search_address_parser.core.parsing_entity import ParsingEntity
+from search_address_parser.core.parsing_entity import ParsingEntity
 
 
 class ParsedData:
