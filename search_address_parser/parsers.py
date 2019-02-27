@@ -1,5 +1,5 @@
-from search_address_parser.core.parser import Parser
-from search_address_parser.entitys import RegionEntity, CityEntity, StreetEntity, AddressEntity
+from search_address_parser.core.parser import Parser, ParserList
+from search_address_parser.entities import RegionEntity, CityEntity, StreetEntity, AddressEntity
 
 
 class RegionParser(Parser):
