@@ -10,7 +10,7 @@ class ParsedData:
         self.match = match
 
     def __repr__(self):
-        return f"{self.entity_name} : {self.match}"
+        return f"{self.match}"
 
 
 class NotParsedData:
@@ -34,6 +34,7 @@ class NotParsedData:
 class ParserResult:
     _parsed_data: [ParsedData]
     _not_parsed_data: NotParsedData
+    _entity_name: str = ""
 
     def __init__(self):
         self._parsed_data = []
@@ -49,6 +50,7 @@ class ParserResult:
             self._parsed_data = self._parsed_data + value
         else:
             self._parsed_data.append(value)
+        self._entity_name = value.entity_name
 
     @property
     def not_parsed_data(self):
@@ -67,6 +69,10 @@ class ParserResult:
         self.parsed_data = value.parsed_data
         self.not_parsed_data = value.not_parsed_data
 
+    @property
+    def entity_name(self):
+        return self._entity_name
+
     def __repr__(self):
         return f"{self._parsed_data}"
 
@@ -84,17 +90,6 @@ class Parser:
                     result.parsed_data = ParsedData(entity_name=self.entity.name, match=match)
                     result.not_parsed_data = result.not_parsed_data.value.replace(match, '').strip()
                 break
-        return result
-
-
-class ParserList(Parser):
-    parsers: [Parser] = []
-
-    def parse(self, value: str) -> ParserResult:
-        result = ParserResult()
-        result.not_parsed_data = value
-        for parser in self.parsers:
-            result.merge(parser.parse(result.not_parsed_data))
         return result
 
 
