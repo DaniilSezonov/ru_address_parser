@@ -1,3 +1,5 @@
+from typing import List
+
 from search_address_parser.core.parsing_entity import ParsingEntity
 
 
@@ -32,7 +34,7 @@ class NotParsedData:
 
 
 class ParserResult:
-    _parsed_data: [ParsedData]
+    _parsed_data: List[ParsedData]
     _not_parsed_data: NotParsedData
     _entity_name: str = ""
 

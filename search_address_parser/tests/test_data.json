@@ -1,0 +1,302 @@
+[
+  {
+    "inline_address": "Россия, Ямало-Ненецкий автономный округ, Шурышкарский район",
+    "verified_city": "Шурышкарский район",
+    "verified_region": "Тюменская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Саха (Якутия), Ленский муниципальный район",
+    "verified_city": "Ленский муниципальный район",
+    "verified_region": "Республика Саха (Якутия)",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Архангельская область, Мезенский район, Межселенные территории Мезенского муниципального района",
+    "verified_city": "Мезенский район",
+    "verified_region": "Архангельская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Ханты-Мансийский автономный округ, Нижневартовский район",
+    "verified_city": "Нижневартовский район",
+    "verified_region": "Тюменская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Ямало-Ненецкий автономный округ, Приуральский район",
+    "verified_city": "Приуральский район",
+    "verified_region": "Тюменская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Магаданская область, Ягоднинский городской округ",
+    "verified_city": "Ягоднинский городской округ",
+    "verified_region": "Магаданская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Красноярский край, Туруханский район",
+    "verified_city": "Туруханский район",
+    "verified_region": "Красноярский край",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Бурятия, Северо-Байкальский район",
+    "verified_city": "Северо-Байкальский район",
+    "verified_region": "Республика Бурятия",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Ямало-Ненецкий автономный округ, Красноселькупский район",
+    "verified_city": "Красноселькупский район",
+    "verified_region": "Тюменская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Саха (Якутия), Эвено-Бытантайский национальный улус",
+    "verified_city": "Эвено-Бытантайский национальный улус",
+    "verified_region": "Республика Саха (Якутия)",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Ямало-Ненецкий автономный округ, Красноселькупский район",
+    "verified_city": "Красноселькупский район",
+    "verified_region": "Тюменская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Саха (Якутия), Оленёкский эвенкийский национальный район",
+    "verified_city": "Оленёкский эвенкийский национальный район",
+    "verified_region": "Республика Саха (Якутия)",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Саха (Якутия), Момский муниципальный район",
+    "verified_city": "Момский муниципальный район",
+    "verified_region": "Республика Саха (Якутия)",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Ямало-Ненецкий автономный округ, Надымский район",
+    "verified_city": "Надымский район",
+    "verified_region": "Тюменская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Костромская область, Вохомский район",
+    "verified_city": "Вохомский район",
+    "verified_region": "Костромская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Томская область, Каргасокский район, болото Компасское",
+    "verified_city": "Каргасокский район",
+    "verified_region": "Томская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Иркутская область, Усть-Кутский район",
+    "verified_city": "Усть-Кутский район",
+    "verified_region": "Иркутская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Красноярский край, Эвенкийский район",
+    "verified_city": "Эвенкийский район",
+    "verified_region": "Красноярский край",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Белое море",
+    "verified_city": "",
+    "verified_region": "",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Обская губа",
+    "verified_city": "",
+    "verified_region": "",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Архангельская область, Пинежский район, муниципальное образование Лавельское",
+    "verified_city": "Пинежский район",
+    "verified_region": "Архангельская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Хабаровский край, Аяно-Майский район",
+    "verified_city": "Аяно-Майский район",
+    "verified_region": "Хабаровский край",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Хабаровский край, Охотский район",
+    "verified_city": "Охотский район",
+    "verified_region": "Хабаровский край",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Ненецкий автономный округ, Заполярный район",
+    "verified_city": "Заполярный район",
+    "verified_region": "Архангельская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Саха (Якутия), Эвено-Бытантайский национальный улус",
+    "verified_city": "Эвено-Бытантайский национальный улус",
+    "verified_region": "Республика Саха (Якутия)",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Саха (Якутия), муниципальный район Верхнеколымский улус",
+    "verified_city": "муниципальный район Верхнеколымский улус",
+    "verified_region": "Республика Саха (Якутия)",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Саха (Якутия), Верхоянский муниципальный район",
+    "verified_city": "Верхоянский муниципальный район",
+    "verified_region": "Республика Саха (Якутия)",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Коми, район Печора",
+    "verified_city": "район Печора",
+    "verified_region": "Республика Коми",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Красноярский край, Эвенкийский район",
+    "verified_city": "Эвенкийский район",
+    "verified_region": "Красноярский край",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Охотское море",
+    "verified_city": "",
+    "verified_region": "",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Вологодская область, Грязовецкий район",
+    "verified_city": "Грязовецкий район",
+    "verified_region": "Вологодская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Томская область, Тегульдетский район",
+    "verified_city": "Тегульдетский район",
+    "verified_region": "Томская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Иркутская область, Киренский район",
+    "verified_city": "Киренский район",
+    "verified_region": "Иркутская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Саха (Якутия), Усть-Янский улус",
+    "verified_city": "Усть-Янский улус",
+    "verified_region": "Республика Саха (Якутия)",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Красноярский край, Эвенкийский район",
+    "verified_city": "Эвенкийский район",
+    "verified_region": "Красноярский край",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Ханты-Мансийский автономный округ, Ханты-Мансийский район",
+    "verified_city": "Ханты-Мансийский район",
+    "verified_region": "Тюменская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Ямало-Ненецкий автономный округ, Шурышкарский район",
+    "verified_city": "Шурышкарский район",
+    "verified_region": "Тюменская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Томская область, Бакчарский район",
+    "verified_city": "Бакчарский район",
+    "verified_region": "Томская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Саха (Якутия), муниципальный район Абыйский улус",
+    "verified_city": "муниципальный район Абыйский улус",
+    "verified_region": "Республика Саха (Якутия)",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Ямало-Ненецкий автономный округ, Пуровский район",
+    "verified_city": "Пуровский район",
+    "verified_region": "Тюменская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Охотское море",
+    "verified_city": "",
+    "verified_region": "",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Свердловская область, Ивдельский городской округ",
+    "verified_city": "Ивдельский городской округ",
+    "verified_region": "Свердловская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Магаданская область, Ягоднинский городской округ",
+    "verified_city": "Ягоднинский городской округ",
+    "verified_region": "Магаданская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Красноярский край, Туруханский район",
+    "verified_city": "Туруханский район",
+    "verified_region": "Красноярский край",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Республика Саха (Якутия), муниципальный район Булунский улус",
+    "verified_city": "муниципальный район Булунский улус",
+    "verified_region": "Республика Саха (Якутия)",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Красноярский край, Эвенкийский район",
+    "verified_city": "Эвенкийский район",
+    "verified_region": "Красноярский край",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Ханты-Мансийский автономный округ, Сургутский район",
+    "verified_city": "Сургутский район",
+    "verified_region": "Тюменская область",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Красноярский край, Таймырский Долгано-Ненецкий район",
+    "verified_city": "Таймырский Долгано-Ненецкий район",
+    "verified_region": "Красноярский край",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Хабаровский край, Аяно-Майский район",
+    "verified_city": "Аяно-Майский район",
+    "verified_region": "Хабаровский край",
+    "verified_street": ""
+  },
+  {
+    "inline_address": "Россия, Магаданская область, Среднеканский городской округ",
+    "verified_city": "Среднеканский городской округ",
+    "verified_region": "Магаданская область",
+    "verified_street": ""
+  }
+]
