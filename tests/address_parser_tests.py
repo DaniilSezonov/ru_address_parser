@@ -3,9 +3,9 @@ import unittest
 from enum import Enum
 from typing import Callable, List
 
-from search_address_parser.parsers import RegionParser
-from search_address_parser.tests.data_generator.get_test_data import TestData, AddressRandomizer, YandexGeocoder, \
-    russian_coordinate_randomizer
+from config import PROJECT_ROOT
+from search_address_parser.parsers import RegionParser, CityParser
+from tests.data_generator.get_test_data import TestData
 
 
 class LoadType(Enum):
@@ -15,7 +15,7 @@ class LoadType(Enum):
 
 class TestDataLoader:
     _data: List[TestData] = []
-    DEFAULT_JSON_PATH = 'test_data.json'
+    DEFAULT_JSON_PATH = PROJECT_ROOT + '/tests/test_data.json'
     DEFAULT_GENERATED_ADDRESS_COUNT = 20
 
     def __init__(self, loading_type: LoadType, **kwargs):
@@ -38,7 +38,7 @@ class TestDataLoader:
         return self._data
 
 
-class TestRegionParsers(unittest.TestCase):
+class TestAddressParsers(unittest.TestCase):
     data: List[TestData]
 
     def setUp(self):
@@ -57,3 +57,10 @@ class TestRegionParsers(unittest.TestCase):
             for parsed_result in result.parsed_data:
                 #TODO вдальнейшем данный тест должен проверять полное совпадение, наверное должен!
                 self.assertTrue(item.verified_region.find(parsed_result.match) != -1)
+
+    def test_city_parser(self):
+        parser = CityParser()
+        for item in self.data:
+            result = parser.parse(item.inline_address)
+            for parsed_result in result.parsed_data:
+                self.assertEqual(item.verified_city, parsed_result.match)

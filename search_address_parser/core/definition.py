@@ -5,7 +5,7 @@ from typing import Pattern
 class MatchPosition:
     LEFT = 0
     RIGHT = 1
-    MIDDLE = 2
+    #MIDDLE = 2
 
 
 class Definition:

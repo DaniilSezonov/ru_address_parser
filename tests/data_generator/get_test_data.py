@@ -44,7 +44,7 @@ class Geocoder:
 
 
 class YandexGeocoder(Geocoder):
-    from search_address_parser.tests.data_generator.private_data import PRIVATE_GEOCODER_KEY
+    from tests.data_generator.private_data import PRIVATE_GEOCODER_KEY
     GEOCODER_KEY = PRIVATE_GEOCODER_KEY
     URL = "https://geocode-maps.yandex.ru/1.x/"
 

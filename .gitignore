@@ -1,0 +1,3 @@
+.venv/
+.idea/
+.tests/data_generator/private_data.py

@@ -91,7 +91,6 @@ class Parser:
                 for match in matches:
                     result.parsed_data = ParsedData(entity_name=self.entity.name, match=match)
                     result.not_parsed_data = result.not_parsed_data.value.replace(match, '').strip()
-                break
         return result
 
 
