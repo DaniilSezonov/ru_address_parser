@@ -23,9 +23,9 @@ class Definition:
     def to_regular_expr(self) -> Pattern:
         result_expr = r""
         if self.match_position == MatchPosition.LEFT:
-            result_expr = rf"[\w|-]+\s{self.value}"
+            result_expr = rf"([\s|\w|-]+)\s{self.value}"
         elif self.match_position == MatchPosition.RIGHT:
-            result_expr = rf"{self.value}\s?[\w+|-]+"
+            result_expr = rf"{self.value}\s([\s|\w|-]+)"
         for abbr in self.abbreviations:
-            result_expr += rf"|{abbr}[\.|\s]+[\w+|-]+"
+            result_expr += rf"|{abbr}[\.|\s]+([\s|\w|-]+)"
         return re.compile(result_expr, flags=re.IGNORECASE)
