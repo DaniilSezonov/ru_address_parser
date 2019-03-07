@@ -54,13 +54,13 @@ class TestAddressParsers(unittest.TestCase):
         parser = RegionParser()
         for item in self.data:
             result = parser.parse(item.inline_address)
-            for parsed_result in result.parsed_data:
+            for parsed_result in result.suitable_definitions:
                 #TODO вдальнейшем данный тест должен проверять полное совпадение, наверное должен!
-                self.assertTrue(item.verified_region.find(parsed_result.match) != -1)
+                self.assertTrue(item.verified_region.find(parsed_result.suitable_value) != -1)
 
     def test_city_parser(self):
         parser = CityParser()
         for item in self.data:
             result = parser.parse(item.inline_address)
-            for parsed_result in result.parsed_data:
-                self.assertEqual(item.verified_city, parsed_result.match)
+            for parsed_result in result.suitable_definitions:
+                self.assertEqual(item.verified_city, parsed_result.suitable_value)

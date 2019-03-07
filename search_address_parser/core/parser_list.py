@@ -1,4 +1,5 @@
-from search_address_parser.core.parser import Parser, ParserResult
+from search_address_parser.core.parser import Parser
+from search_address_parser.core.parser_result import ParserResult
 
 
 class MultipleParserResult:

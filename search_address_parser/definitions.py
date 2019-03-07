@@ -2,7 +2,7 @@ from search_address_parser.core.definition import Definition, MatchPosition
 
 REGION_DEFINITIONS = [
     Definition(value="Область", abbreviations=['Обл'], match_pos=MatchPosition.LEFT),
-    Definition(value="Автономный округ", abbreviations=['АО'],  match_pos=MatchPosition.RIGHT),
+    Definition(value="Автономный округ", abbreviations=['АО'],  match_pos=MatchPosition.LEFT),
     Definition(value="Автономная область", abbreviations=['авт.обл', 'авт обл'], match_pos=MatchPosition.LEFT),
     Definition(value="Край", abbreviations=[], match_pos=MatchPosition.LEFT),
     Definition(value="Республика", abbreviations=['респ'], match_pos=MatchPosition.RIGHT)
