@@ -1,5 +1,5 @@
 from search_address_parser.core.parser import Parser
-from search_address_parser.core.parser_result import ParserResult
+from search_address_parser.core.parser_result import ParserResult, EmptyResult
 
 
 class MultipleParserResult:
@@ -9,18 +9,18 @@ class MultipleParserResult:
     def __init__(self, parsers: []):
         self.fields = [parser.entity.name for parser in parsers]
         for field_name in self.fields:
-            self.value.setdefault(field_name, ParserResult())
+            self.value.setdefault(field_name, EmptyResult())
 
     def add(self, result: ParserResult):
-        self.value[result.entity_name] = result.parsed_data
+        self.value[result.entity_name] = result.value
 
 
 class ParserList:
     parsers: [Parser] = []
+    result: MultipleParserResult = None
 
     def parse(self, value: str) -> MultipleParserResult:
-        result = MultipleParserResult(self.parsers)
-        result.not_parsed_data = value
+        self.result = MultipleParserResult(self.parsers)
         for parser in self.parsers:
-            result.add(parser.parse(result.not_parsed_data))
-        return result
+            self.result.add(parser.parse(value))
+        return self.result

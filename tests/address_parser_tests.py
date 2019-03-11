@@ -4,7 +4,7 @@ from enum import Enum
 from typing import Callable, List
 
 from config import PROJECT_ROOT
-from search_address_parser.parsers import RegionParser, CityParser
+from search_address_parser.parsers import RegionParser, CityParser, StreetParser, AddressParser
 from tests.data_generator.get_test_data import TestData
 
 
@@ -50,17 +50,40 @@ class TestAddressParsers(unittest.TestCase):
         # data_loader = TestDataLoader(loading_type=LoadType.GEOCODER, **setup)
         self.data = data_loader.get_data()
 
+    def test_parse_region_only(self):
+        parser = RegionParser()
+        query = "Орловская область"
+        result = parser.parse(query)
+        self.assertEqual(result.value.lower(), "Орловская область".lower())
+
+    def test_parse_city_only(self):
+        parser = CityParser()
+        query = "г.Орёл"
+        result = parser.parse(query)
+        self.assertEqual(result.value, "Орёл")
+
+    def test_parse_street_only(self):
+        parser = StreetParser()
+        query = "улица Маринченко"
+        result = parser.parse(query)
+        self.assertEqual(result.value, "Маринченко")
+
+    def test_parse_address(self):
+        parser = AddressParser()
+        query = "Московская область, г. Москва, ул.Красная площадь"
+        result = parser.parse(query)
+        self.assertEqual(result.value['city'].lower(), "Москва".lower())
+        self.assertEqual(result.value['region'].lower(), "Московская область".lower())
+        self.assertEqual(result.value['street'].lower(), "Красная площадь".lower())
+
     def test_region_parser(self):
         parser = RegionParser()
         for item in self.data:
             result = parser.parse(item.inline_address)
-            for parsed_result in result.suitable_definitions:
-                #TODO вдальнейшем данный тест должен проверять полное совпадение, наверное должен!
-                self.assertTrue(item.verified_region.find(parsed_result.suitable_value) != -1)
+            self.assertEqual(item.verified_region.lower(), result.value.lower())
 
     def test_city_parser(self):
         parser = CityParser()
         for item in self.data:
             result = parser.parse(item.inline_address)
-            for parsed_result in result.suitable_definitions:
-                self.assertEqual(item.verified_city, parsed_result.suitable_value)
+            self.assertEqual(item.verified_city,result.value)

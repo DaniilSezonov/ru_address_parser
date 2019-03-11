@@ -30,32 +30,61 @@ class Definition:
     value: str = ""
     abbreviations: str = []
     match_position: MatchPosition
+    include_definition_part: bool = True
 
-    def __init__(self, value: str, abbreviations: [str], match_pos: MatchPosition = DEFAULT_MATCH_POS):
+    def __init__(self, value: str, abbreviations: [str], match_pos: MatchPosition = DEFAULT_MATCH_POS, include_definition_part: bool = True):
         self.value = value
         self.abbreviations = abbreviations
         self.match_position = match_pos
+        self.include_definition_part = include_definition_part
 
-    def to_regular_expr(self) -> Pattern:
-        result_expr = r""
+    def to_regular_expr(self) -> (Pattern, Pattern):
+        value_expr = r""
+        abbreviation_expr = r""
         if self.match_position == MatchPosition.LEFT:
-            result_expr = rf"([\s|\w|-]+)\s{self.value}"
+            value_expr = rf"([\s|\w|-]+)\s{self.value}"
         elif self.match_position == MatchPosition.RIGHT:
-            result_expr = rf"{self.value}\s([\s|\w|-]+)"
-        for abbr in self.abbreviations:
-            result_expr += rf"|{abbr}[\.|\s]+([\s|\w|-]+)"
-        return re.compile(result_expr, flags=re.IGNORECASE)
+            value_expr = rf"{self.value}\s([\s|\w|-]+)"
+        for index, abbr in enumerate(self.abbreviations):
+            abbreviation_expr += rf"{abbr}[\.|\s]+([\s|\w|-]+)|"
+        return re.compile(value_expr, flags=re.IGNORECASE), re.compile(abbreviation_expr[:-1], flags=re.IGNORECASE)
 
     def assume(self, value: str) -> [SuitableDefinition] or None:
-        match = self.to_regular_expr().match(value)
-        if match.groups():
-            return [
-                SuitableDefinition(
-                    suit_value=match_value,
-                    def_value=self.value,
-                    match_span=match.span(index)
-                ) for index, match_value in enumerate(match.groups())
-            ]
+        value_expr, abbr_expr = self.to_regular_expr()
+        value_match = value_expr.search(value)
+        abbr_match = abbr_expr.search(value)
+        if value_match and value_match.groups():
+            suitable_definitions = []
+            for index, match_value in enumerate(value_match.groups()):
+                if not match_value:
+                    break
+                suitable_value = match_value
+                if self.include_definition_part:
+                    if self.match_position == MatchPosition.RIGHT:
+                        suitable_value = f'{self.value} {suitable_value}'
+                    elif self.match_position == MatchPosition.LEFT:
+                        suitable_value = f'{suitable_value} {self.value}'
+                suitable_definitions.append(
+                    SuitableDefinition(
+                        suit_value=suitable_value,
+                        def_value=self.value,
+                        match_span=value_match.span(index)
+                    )
+                )
+            return suitable_definitions
+        elif abbr_match and abbr_match.groups():
+            suitable_definitions = []
+            for index, match_value in enumerate(abbr_match.groups()):
+                if not match_value:
+                    break
+                suitable_definitions.append(
+                    SuitableDefinition(
+                        suit_value=match_value,
+                        def_value=self.value,
+                        match_span=abbr_match.span(index)
+                    )
+                )
+            return suitable_definitions
         return None
 
 

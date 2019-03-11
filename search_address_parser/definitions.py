@@ -9,7 +9,7 @@ REGION_DEFINITIONS = [
 ]
 
 CITY_DEFINITIONS = [
-    Definition(value="город", abbreviations=['г'], match_pos=MatchPosition.RIGHT),
+    Definition(value="город", abbreviations=['г'], match_pos=MatchPosition.RIGHT, include_definition_part=False),
     Definition(value="посёлок городского типа", abbreviations=['п.г.т'], match_pos=MatchPosition.RIGHT),
     Definition(value="посёлок при станции", abbreviations=['п-ст', 'п.ст'],  match_pos=MatchPosition.RIGHT),
     Definition(value="район", abbreviations=['п-ст', 'р-н']),
@@ -59,7 +59,7 @@ STREET_DEFINITIONS = [
     Definition(value="территория", abbreviations=[]),
     Definition(value="тракт", abbreviations=[]),
     Definition(value="тупик", abbreviations=['туп']),
-    Definition(value="улица", abbreviations=['ул.']),
+    Definition(value="улица", abbreviations=['ул.'], match_pos=MatchPosition.RIGHT, include_definition_part=False),
     Definition(value="шоссе", abbreviations=['ш']),
     Definition(value="аллея", abbreviations=['ал']),
     Definition(value="магистраль", abbreviations=['маг']),
