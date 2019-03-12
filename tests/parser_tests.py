@@ -27,7 +27,7 @@ class CoreParserTests(unittest.TestCase):
         ]
         self.parser.entity = self.entity
         result = self.parser.parse("hello world")
-        self.assertEqual("hello world", result.value)
+        self.assertEqual("hello world", result[0].value)
 
     def test_simple_parse_with_match_position_left(self):
         self.entity.definitions = [
@@ -35,7 +35,7 @@ class CoreParserTests(unittest.TestCase):
         ]
         self.parser.entity = self.entity
         result = self.parser.parse("world hello")
-        self.assertEqual("world hello", result.value)
+        self.assertEqual("world hello", result[0].value)
 
     def test_parse_multiple_words_from_side_of_definition(self):
         expected_result = "hello beautiful world"
@@ -44,7 +44,7 @@ class CoreParserTests(unittest.TestCase):
         ]
         self.parser.entity = self.entity
         result = self.parser.parse("hello beautiful world")
-        self.assertEqual(expected_result, result.value)
+        self.assertEqual(expected_result, result[0].value)
 
     def test_parse_with_similar_definitions(self):
         self.entity.definitions = [
@@ -54,16 +54,15 @@ class CoreParserTests(unittest.TestCase):
         ]
         self.parser.entity = self.entity
         result = self.parser.parse("посёлок городского типа Тихий дом")
-        self.assertEqual(result.value, "Тихий дом")
+        self.assertEqual(result[0].value, "Тихий дом")
 
     def test_parse_with_definitions_span_conflict(self):
         self.entity.definitions = [
             Definition(value="село", match_pos=MatchPosition.RIGHT, abbreviations=[]),
-            Definition(value="вал", match_pos=MatchPosition.LEFT, abbreviations=[])
+            Definition(value="вал", match_pos=MatchPosition.LEFT, abbreviations=[]),
         ]
         self.parser.entity = self.entity
-        result = self.parser.parse("село НазваниеСела НазваниеВала вал")
-        matches = [parser_res.suitable_value for parser_res in result.value]
+        result1, result2 = self.parser.parse("село НазваниеСела 123 тест НазваниеВала вал")
 
-        self.assertEqual(matches[0], "НазваниеСела НазваниеВала")
-        self.assertEqual(matches[1], "НазваниеСела НазваниеВала")
+        self.assertEqual(result1.value, "НазваниеСела")
+        self.assertEqual(result2.value, "НазваниеВала")

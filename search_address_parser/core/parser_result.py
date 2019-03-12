@@ -37,8 +37,18 @@ class AssumeResult:
                 self.suitable_definitions.remove(excepted)
             self.suitable_definitions.extend(included_definitions)
 
-    def merge_span_conflict(self):
-        raise NotImplementedError()
+    def merge_span_conflict(self, conflicts: List):
+        for conflict in conflicts:
+            self.suitable_definitions[conflict[0]]
+            #TODO
+
+    def find_span_conflict(self) -> List:
+        founded_conflicts = []
+        for index, suitable_definition in enumerate(self.suitable_definitions):
+            for comparing_index, comparing_definition in enumerate(self.suitable_definitions):
+                if suitable_definition.match_span[1] > comparing_definition.match_span[1] > suitable_definition.match_span[0]:
+                    founded_conflicts.append((index, comparing_index))
+        return founded_conflicts
 
     @property
     def entity_name(self):
@@ -50,14 +60,15 @@ class AssumeResult:
     def to_parser_result(self):
         if not self.suitable_definitions:
             return EmptyResult()
-        elif len(self.suitable_definitions) == 1:
-            return ParserResult(
-                result=self.suitable_definitions[0].suitable_value.strip(),
-                entity_name=self.entity_name,
-                definition_name=self.suitable_definitions[0].definition_value
-            )
         else:
-            return self.merge_span_conflict()
+            conflicts = self.find_span_conflict()
+            if conflicts:
+                self.merge_span_conflict(conflicts)
+            return [ParserResult(
+                result=suit_def.suitable_value.strip(),
+                entity_name=self.entity_name,
+                definition_name=suit_def.definition_value
+            ) for suit_def in self.suitable_definitions]
 
 
 class ParserResult:

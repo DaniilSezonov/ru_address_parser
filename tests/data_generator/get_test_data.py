@@ -102,10 +102,10 @@ class YandexGeocoder(Geocoder):
         return response['GeoObjectCollection']['featureMember'][0]['GeoObject']['metaDataProperty']['GeocoderMetaData']['Address']
 
 
-def russian_coordinate_randomizer() -> tuple:
+def moscow_coordinate_randomizer() -> tuple:
     """TODO очень посредственное решение"""
-    east_side_point = (55.96056, 37.7097609)
-    west_side_point = (70.982239, 156.572690)
+    east_side_point = (55.8881916, 37.4292278)
+    west_side_point = (55.7250542, 37.6482781)
     return (
         round(random.uniform(east_side_point[0], west_side_point[0]), 5),
         round(random.uniform(east_side_point[1], west_side_point[1]), 5)
@@ -135,7 +135,7 @@ class AddressRandomizer:
 
 def generate_json_data(file_name="test_data.json", addresses_count=50):
     addresses = []
-    ar = AddressRandomizer(YandexGeocoder(), russian_coordinate_randomizer)
+    ar = AddressRandomizer(YandexGeocoder(), moscow_coordinate_randomizer)
     for _ in range(addresses_count):
         addresses.append(ar.get_random_address().__dict__)
     with open(file_name, 'w') as file:

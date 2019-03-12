@@ -21,7 +21,7 @@ class SuitableDefinition:
         return self.definition_value.lower().startswith(value.definition_value.lower())
 
     def __repr__(self):
-        return f"{self.definition_value}: {self.suitable_value}"
+        return f"{self.suitable_value}"
 
 
 class Definition:
@@ -68,7 +68,7 @@ class Definition:
                     SuitableDefinition(
                         suit_value=suitable_value,
                         def_value=self.value,
-                        match_span=value_match.span(index)
+                        match_span=value_match.span(index+1)
                     )
                 )
             return suitable_definitions
@@ -81,7 +81,7 @@ class Definition:
                     SuitableDefinition(
                         suit_value=match_value,
                         def_value=self.value,
-                        match_span=abbr_match.span(index)
+                        match_span=abbr_match.span(index+1)
                     )
                 )
             return suitable_definitions

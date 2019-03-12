@@ -54,19 +54,19 @@ class TestAddressParsers(unittest.TestCase):
         parser = RegionParser()
         query = "Орловская область"
         result = parser.parse(query)
-        self.assertEqual(result.value.lower(), "Орловская область".lower())
+        self.assertEqual(result[0].value.lower(), "Орловская область".lower())
 
     def test_parse_city_only(self):
         parser = CityParser()
         query = "г.Орёл"
         result = parser.parse(query)
-        self.assertEqual(result.value, "Орёл")
+        self.assertEqual(result[0].value, "Орёл")
 
     def test_parse_street_only(self):
         parser = StreetParser()
         query = "улица Маринченко"
         result = parser.parse(query)
-        self.assertEqual(result.value, "Маринченко")
+        self.assertEqual(result[0].value, "Маринченко")
 
     def test_parse_address(self):
         parser = AddressParser()

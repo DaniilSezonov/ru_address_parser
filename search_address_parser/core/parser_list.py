@@ -1,3 +1,5 @@
+from typing import List
+
 from search_address_parser.core.parser import Parser
 from search_address_parser.core.parser_result import ParserResult, EmptyResult
 
@@ -11,8 +13,12 @@ class MultipleParserResult:
         for field_name in self.fields:
             self.value.setdefault(field_name, EmptyResult())
 
-    def add(self, result: ParserResult):
-        self.value[result.entity_name] = result.value
+    def add(self, result: ParserResult or List[ParserResult]):
+        if isinstance(result, list):
+            for res in result:
+                self.value[res.entity_name] = res.value
+        else:
+            self.value[result.entity_name] = result.value
 
 
 class ParserList:
