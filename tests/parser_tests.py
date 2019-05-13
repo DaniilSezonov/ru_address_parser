@@ -1,5 +1,6 @@
 import unittest
 
+from search_address_parser.core.data_store import DataStore
 from search_address_parser.core.definition import Definition, MatchPosition
 from search_address_parser.core.parser import Parser
 from search_address_parser.core.parsing_entity import ParsingEntity
@@ -14,6 +15,10 @@ class TestEntity(ParsingEntity):
 
 class TestParser(Parser):
     entity = None
+
+
+class StoreParser(Parser):
+    store =  DataStore(data={"1": "Орёл"})
 
 
 class CoreParserTests(unittest.TestCase):
@@ -66,3 +71,10 @@ class CoreParserTests(unittest.TestCase):
 
         self.assertEqual(result1.value, "НазваниеСела")
         self.assertEqual(result2.value, "НазваниеВала")
+
+    def test_with_store(self):
+        #todo
+        parser = StoreParser()
+        parser.entity = self.entity
+        result = parser.parse("Орёл")
+        self.assertEqual(parser.parse("Орёл").value, "Орёл")
